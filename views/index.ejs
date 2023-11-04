@@ -1,0 +1,33 @@
+<% layout("/layouts/boilerplate") -%>
+
+	<body>
+		<div class="flex flex-wrap justify-around">
+			<%for(let list of allListings){%>
+				<div
+					class="relative flex justify-between w-80 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md shadow-black mt-12">
+					<div
+						class="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 ">
+						<img src="<%= list.image%>" alt="">
+					</div>
+					<div class="p-6">
+						<h5
+							class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+							<%= list.title %>
+						</h5>
+						<p class="text-gray-500 text-sm">
+							Price:
+							<span class="font-bold tracking-wide"> &#8377; <%= list.price.toLocaleString("en-IN") %>
+							</span>
+							/ Night
+						</p>
+					</div>
+					<div class="p-2 pt-0 ">
+						<a href="/listings/<%= list._id %>"
+							class="block select-none rounded-lg bg-blue-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+							View Details
+						</a>
+					</div>
+				</div>
+				<% } %>
+		</div>
+	</body>

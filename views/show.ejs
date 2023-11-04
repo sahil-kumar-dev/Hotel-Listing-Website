@@ -1,0 +1,37 @@
+<%- layout("/layouts/boilerplate.ejs") %>
+
+	<body>
+		<div class="flex items-center justify-center h-screen">
+			<div class="w-[30rem]  rounded-md shadow-md shadow-gray-500 p-4">
+				<ul>
+					<li class="title">
+						<%= listing.title %>
+					</li>
+					<li class="rounded-md overflow-hidden border-2 border-solid border-black p-1">
+						<img src="<%= listing.image %>" alt="" class="rounded-md" >
+					</li>
+					<li class="text-gray-500">
+						<p><%= listing.description %></p>
+					</li>
+					<li class="price">
+						<p>&#8377; <%= listing.price.toLocaleString("en-IN") %>/Night</p>
+					</li>
+					<li>
+						<%= listing.location %>
+					</li>
+					<li>
+						<%= listing.country %>
+					</li>
+				</ul>
+				<div class="flex py-3">
+
+					<a href="/listings/<%= listing._id %>/edit"
+						class="bg-black text-white px-4 py-1 tracking-wide rounded-md font-bold border-2 border-solid border-red-500">Edit</a>
+					<form method="POST" action="/listings/<%= listing.id  %>?_method=DELETE">
+						<button
+							class="px-4 ml-4 py-1 bg-red-500 font-bold tracking-wide rounded-md text-white border-2 border-solid border-black">DELETE</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
